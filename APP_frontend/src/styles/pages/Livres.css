@@ -1,0 +1,13 @@
+/* livres.css */
+.livres-container {
+  padding: 2rem;
+}
+
+.livre-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.livre-card:hover {
+  transform: translateY(-5px);
+}

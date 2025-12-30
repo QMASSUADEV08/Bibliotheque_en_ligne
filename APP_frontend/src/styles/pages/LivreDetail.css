@@ -1,0 +1,9 @@
+/* livre-detail.css */
+.livre-detail {
+  padding: 2rem;
+}
+
+.livre-detail img {
+  max-width: 100%;
+  border-radius: 6px;
+}

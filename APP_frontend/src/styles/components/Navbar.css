@@ -1,0 +1,8 @@
+/* navbar.css */
+.navbar-brand {
+  font-weight: 600;
+}
+
+.navbar input[type="search"] {
+  max-width: 300px;
+}

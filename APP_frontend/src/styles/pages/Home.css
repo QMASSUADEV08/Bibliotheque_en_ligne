@@ -1,0 +1,16 @@
+/* home.css */
+.home-hero {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+}
+
+.home-section {
+  padding: 3rem 2rem;
+}
+
+.stat-box {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
