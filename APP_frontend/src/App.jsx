@@ -1,20 +1,32 @@
+// src/App.jsx
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-// Pages (on va les créer juste après)
-import Home from "./pages/Home.jsx";
-import Livres from "./pages/Livres.jsx";
-import LivreDetail from "./pages/LivreDetail.jsx";
-import Connexion from "./pages/Connexion.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-export default function App() {
+import Accueil from "./pages/Accueil";
+import Livres from "./pages/Livres";
+import DetailLivre from "./pages/DetailLivre";
+import Connexion from "./pages/Connexion";
+
+function App() {
   return (
-    <div className="pt-5">
+    <>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Accueil />} />
         <Route path="/livres" element={<Livres />} />
-        <Route path="/livre/:id" element={<LivreDetail />} />
+        <Route path="/livres/:id" element={<DetailLivre />} />
         <Route path="/connexion" element={<Connexion />} />
       </Routes>
-    </div>
+      <Footer />
+    </>
   );
 }
+
+export default App;
+
+
