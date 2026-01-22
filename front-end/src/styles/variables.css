@@ -1,0 +1,89 @@
+:root {
+  /* ============ COULEURS PRINCIPALES ============ */
+  /* Palette Lisez.com */
+  --color-primary: #8B1538;           /* Rouge bordeaux principal */
+  --color-primary-dark: #6B0F2A;      /* Bordeaux foncé (hover) */
+  --color-primary-light: #A52045;     /* Bordeaux clair */
+  
+  /* Couleurs neutres */
+  --color-white: #FFFFFF;
+  --color-black: #1A1A1A;
+  --color-gray-dark: #333333;
+  --color-gray: #666666;
+  --color-gray-light: #CCCCCC;
+  --color-gray-lighter: #F5F5F5;
+  --color-background: #F8F8F8;
+  
+  /* ============ COULEURS D'ÉTAT ============ */
+  --color-success: #28A745;           /* Disponible */
+  --color-warning: #FFC107;           /* En cours */
+  --color-danger: #DC3545;            /* Emprunté */
+  --color-info: #17A2B8;              /* Information */
+  
+  /* ============ TYPOGRAPHIE ============ */
+  --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-title: 'Georgia', 'Times New Roman', serif;
+  --font-logo: 'Brush Script MT', cursive;
+  
+  /* Tailles de police */
+  --font-size-xs: 0.75rem;      /* 12px */
+  --font-size-sm: 0.875rem;     /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;     /* 18px */
+  --font-size-xl: 1.25rem;      /* 20px */
+  --font-size-2xl: 1.5rem;      /* 24px */
+  --font-size-3xl: 2rem;        /* 32px */
+  --font-size-4xl: 2.5rem;      /* 40px */
+  --font-size-5xl: 3rem;        /* 48px */
+  
+  /* Poids de police */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* ============ ESPACEMENTS ============ */
+  --spacing-xs: 0.25rem;        /* 4px */
+  --spacing-sm: 0.5rem;         /* 8px */
+  --spacing-md: 1rem;           /* 16px */
+  --spacing-lg: 1.5rem;         /* 24px */
+  --spacing-xl: 2rem;           /* 32px */
+  --spacing-2xl: 3rem;          /* 48px */
+  --spacing-3xl: 4rem;          /* 64px */
+  --spacing-4xl: 6rem;          /* 96px */
+  
+  /* ============ BORDURES ============ */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-full: 9999px;
+  
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 4px;
+  
+  /* ============ OMBRES ============ */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.25);
+  
+  /* ============ TRANSITIONS ============ */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* ============ DIMENSIONS ============ */
+  --navbar-height: 120px;        /* Hauteur navbar (2 lignes) */
+  --container-max-width: 1200px;
+  --content-max-width: 900px;
+  
+  /* ============ Z-INDEX ============ */
+  --z-dropdown: 100;
+  --z-navbar: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+}
