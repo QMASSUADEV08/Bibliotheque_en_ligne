@@ -26,7 +26,7 @@ const Login = () => {
     const data = await response.json();
 
     if (data.message) {
-      alert(data.message); // "Connexion réussie, bienvenue ..."
+      alert(data.message);
       
       // redirection selon le rôle
       if (data.role === "admin") {

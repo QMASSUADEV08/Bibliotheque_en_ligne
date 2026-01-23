@@ -45,9 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($utilisateur && password_verify($motdepasse, $utilisateur['mot_de_passe'])) {
-                $motdepasse = "admin123";
-                $hash = password_hash($motdepasse, PASSWORD_DEFAULT);
-                echo $hash;
                 echo json_encode([
                     "message" => "Connexion réussie, bienvenue " . htmlspecialchars($utilisateur['nom']),
                     "role"    => $utilisateur['role']
