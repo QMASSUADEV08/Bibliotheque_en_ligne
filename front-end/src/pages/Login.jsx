@@ -152,6 +152,16 @@ const Login = () => {
             >
               Se connecter
             </button>
+            {/* 🔑 Lien mot de passe oublié */}
+           <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-md)' }}>
+           <Link 
+           to="/forgot-password" 
+           style={{ color: 'var(--color-primary)', fontWeight: 'var(--font-weight-semibold)' }}
+      >
+          Mot de passe oublié ?
+         </Link>
+</div>
+
 
             {/* Liens */}
             <div style={{ textAlign: 'center' }}>

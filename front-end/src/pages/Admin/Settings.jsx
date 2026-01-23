@@ -26,7 +26,7 @@ export function Settings() {
               <input
                 type="text"
                 className="search-input"
-                defaultValue="Bibliothèque Municipale"
+                defaultValue="Bibliothèque UIYA"
               />
             </div>
             <div>
@@ -36,7 +36,7 @@ export function Settings() {
               <input
                 type="email"
                 className="search-input"
-                defaultValue="contact@bibliotheque.fr"
+                defaultValue="admin@gmail.com"
               />
             </div>
             <div>
@@ -56,7 +56,7 @@ export function Settings() {
               <input
                 type="text"
                 className="search-input"
-                defaultValue="123 Rue de la République, 75001 Paris"
+                defaultValue="yamoussoukro, cote d'ivoire"
               />
             </div>
           </div>
@@ -100,13 +100,13 @@ export function Settings() {
             </div>
             <div>
               <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>
-                Pénalité de retard (€/jour)
+                Pénalité de retard (fcfa/jour)
               </label>
               <input
                 type="number"
                 step="0.01"
                 className="search-input"
-                defaultValue="0.50"
+                defaultValue="500"
               />
             </div>
           </div>

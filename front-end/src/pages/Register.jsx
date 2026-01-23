@@ -11,52 +11,73 @@ const Register = () => {
     password: '',
     confirmPassword: ''
   });
+
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Validation spécifique pour nom et prénom
+    if ((name === "nom" || name === "prenom") && /\d/.test(value)) {
+      setErrors({
+        ...errors,
+        [name]: "Veuillez saisir un " + name + " valide (sans chiffres)."
+      });
+    } else {
+      setErrors({
+        ...errors,
+        [name]: ""
+      });
+    }
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  // Validation
-  if (formData.password !== formData.confirmPassword) {
-    alert('Les mots de passe ne correspondent pas !');
-    return;
-  }
-
-  try {
-    const response = await fetch("http://localhost/ququ%20projet/app_bibliotheque/backend/inscription.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      body: new URLSearchParams({
-        action: "inscription",
-        nom: formData.nom,
-        prenom: formData.prenom,
-        email: formData.email,
-        telephone: formData.telephone,
-        password: formData.password
-      })
-    });
-    const data = await response.json();
-        if (data.message) {
-      alert(data.message); // "Inscription réussie"
-      navigate("/login");
-    } else if (data.error) {
-      alert(data.error); // "Veuillez remplir tous les champs"
+    // Vérifie si erreurs
+    if (errors.nom || errors.prenom) {
+      alert("Veuillez corriger les erreurs dans le formulaire.");
+      return;
     }
-  } catch (error) {
-    console.error("Erreur lors de l'inscription:", error);
-    alert("Une erreur est survenue, réessayez plus tard.");
-  }
-};
 
+    if (formData.password !== formData.confirmPassword) {
+      alert('Les mots de passe ne correspondent pas !');
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost/ququ%20projet/app_bibliotheque/backend/inscription.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+          action: "inscription",
+          nom: formData.nom,
+          prenom: formData.prenom,
+          email: formData.email,
+          telephone: formData.telephone,
+          password: formData.password
+        })
+      });
+      const data = await response.json();
+      if (data.message) {
+        alert(data.message); // "Inscription réussie"
+        navigate("/login");
+      } else if (data.error) {
+        alert(data.error); // "Veuillez remplir tous les champs"
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'inscription:", error);
+      alert("Une erreur est survenue, réessayez plus tard.");
+    }
+  };
 
   const inputStyle = {
     width: '100%',
@@ -78,7 +99,6 @@ const Register = () => {
   return (
     <div>
       <Navbar />
-      
       <div style={{
         minHeight: '100vh',
         display: 'flex',
@@ -96,29 +116,23 @@ const Register = () => {
           width: '100%',
           maxWidth: '500px'
         }}>
-          
-          {/* Titre */}
           <div style={{ textAlign: 'center', marginBottom: 'var(--spacing-xl)' }}>
-            <h1 style={{ 
-              fontSize: 'var(--font-size-3xl)', 
+            <h1 style={{
+              fontSize: 'var(--font-size-3xl)',
               color: 'var(--color-primary)',
               marginBottom: 'var(--spacing-sm)'
             }}>
-               Inscription
+              Inscription
             </h1>
             <p style={{ color: 'var(--color-gray)' }}>
               Créez votre compte pour emprunter des livres
             </p>
           </div>
 
-          {/* Formulaire */}
           <form onSubmit={handleSubmit}>
-            
             {/* Nom */}
             <div style={{ marginBottom: 'var(--spacing-lg)' }}>
-              <label style={labelStyle}>
-                Nom *
-              </label>
+              <label style={labelStyle}>Nom</label>
               <input
                 type="text"
                 name="nom"
@@ -128,13 +142,12 @@ const Register = () => {
                 placeholder="Ex: Kouassi"
                 style={inputStyle}
               />
+              {errors.nom && <p style={{ color: "red" }}>{errors.nom}</p>}
             </div>
 
             {/* Prénom */}
             <div style={{ marginBottom: 'var(--spacing-lg)' }}>
-              <label style={labelStyle}>
-                Prénom 
-              </label>
+              <label style={labelStyle}>Prénom</label>
               <input
                 type="text"
                 name="prenom"
@@ -144,13 +157,12 @@ const Register = () => {
                 placeholder="Ex: Jean"
                 style={inputStyle}
               />
+              {errors.prenom && <p style={{ color: "red" }}>{errors.prenom}</p>}
             </div>
 
             {/* Email */}
             <div style={{ marginBottom: 'var(--spacing-lg)' }}>
-              <label style={labelStyle}>
-                Email 
-              </label>
+              <label style={labelStyle}>Email</label>
               <input
                 type="email"
                 name="email"
@@ -164,9 +176,7 @@ const Register = () => {
 
             {/* Téléphone */}
             <div style={{ marginBottom: 'var(--spacing-lg)' }}>
-              <label style={labelStyle}>
-                Téléphone 
-              </label>
+              <label style={labelStyle}>Téléphone</label>
               <input
                 type="tel"
                 name="telephone"
@@ -180,9 +190,7 @@ const Register = () => {
 
             {/* Mot de passe */}
             <div style={{ marginBottom: 'var(--spacing-lg)' }}>
-              <label style={labelStyle}>
-                Mot de passe 
-              </label>
+              <label style={labelStyle}>Mot de passe</label>
               <input
                 type="password"
                 name="password"
@@ -197,9 +205,7 @@ const Register = () => {
 
             {/* Confirmation mot de passe */}
             <div style={{ marginBottom: 'var(--spacing-lg)' }}>
-              <label style={labelStyle}>
-                Confirmer le mot de passe 
-              </label>
+              <label style={labelStyle}>Confirmer le mot de passe</label>
               <input
                 type="password"
                 name="confirmPassword"
@@ -212,8 +218,7 @@ const Register = () => {
               />
             </div>
 
-            {/* Bouton d'inscription */}
-            <button 
+            <button
               type="submit"
               className="btn btn-primary"
               style={{ width: '100%', marginBottom: 'var(--spacing-md)' }}
@@ -221,7 +226,6 @@ const Register = () => {
               S'inscrire
             </button>
 
-            {/* Lien vers connexion */}
             <div style={{ textAlign: 'center' }}>
               <p style={{ color: 'var(--color-gray)', fontSize: 'var(--font-size-sm)' }}>
                 Vous avez déjà un compte ?{' '}

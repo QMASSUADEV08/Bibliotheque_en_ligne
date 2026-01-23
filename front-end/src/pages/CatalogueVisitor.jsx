@@ -62,7 +62,7 @@ const CatalogueVisitor = () => {
                 color: 'var(--color-primary)',
                 marginBottom: 'var(--spacing-sm)'
               }}>
-                🚶 Accès Visiteur
+                 Accès Visiteur
               </h1>
               <p style={{ color: 'var(--color-gray)' }}>
                 Consultez notre catalogue sans créer de compte
@@ -78,16 +78,16 @@ const CatalogueVisitor = () => {
               fontSize: 'var(--font-size-sm)'
             }}>
               <p style={{ marginBottom: 'var(--spacing-sm)' }}>
-                ✅ Voir la liste des livres
+                Pour voir la liste des livres
               </p>
               <p style={{ marginBottom: 'var(--spacing-sm)' }}>
-                ✅ Consulter les résumés
+                Pour consulter les résumés
               </p>
               <p style={{ marginBottom: 'var(--spacing-sm)' }}>
-                ✅ Vérifier les disponibilités
+                pour vérifier les disponibilités
               </p>
               <p style={{ color: 'var(--color-danger)' }}>
-                ❌ Emprunter des livres (nécessite un compte)
+                Et  Emprunter des livres vous devez créer un compte
               </p>
             </div>
 

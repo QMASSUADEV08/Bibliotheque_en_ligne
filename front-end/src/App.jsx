@@ -5,14 +5,15 @@ import './styles/global.css';
 
 // Pages
 import Home from './pages/Home';
-import Login from './pages/login';
+import Login from './pages/Login';
 import Register from './pages/Register';
 import CatalogueVisitor from './pages/CatalogueVisitor';
 import About from './pages/About';
 import DetailLivre from './pages/DetailLivre';
-import  {Dashboard}  from './pages/Admin/Dashboard.jsx';
-import  {Emprunts}  from './pages/Admin/Emprunts.jsx';
-import {Livres} from './pages/Admin/Livres.jsx';
+import ForgotPassword from './pages/forgotpassword.jsx';
+import { Dashboard } from './pages/Admin/Dashboard.jsx';
+import { Emprunts } from './pages/Admin/Emprunts.jsx';
+import { Livres } from './pages/Admin/Livres.jsx';
 import { Settings } from './pages/Admin/Settings.jsx';
 import { Membres } from './pages/Admin/Membres.jsx';
 
@@ -43,6 +44,9 @@ function App() {
         
         {/* Détail d'un livre */}
         <Route path="/livre/:id" element={<DetailLivre />} />
+        
+        {/* 🔑 Mot de passe oublié */}
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         
         {/* Tableau de bord Admin */}
         <Route path="/admin/dashboard" element={<Dashboard />} />
