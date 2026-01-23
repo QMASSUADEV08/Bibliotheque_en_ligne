@@ -20,34 +20,43 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // Validation
-    if (formData.password !== formData.confirmPassword) {
-      alert('Les mots de passe ne correspondent pas !');
-      return;
-    }
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // TODO: Appel API backend pour inscription
-    console.log('Données inscription:', formData);
-    
-    // fetch('http://localhost/api/inscription.php', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(formData)
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //   if (data.success) {
-    //     alert('Inscription réussie !');
-    //     navigate('/login');
-    //   }
-    // });
-    
-    alert('Inscription réussie ! (À connecter au backend)');
-    navigate('/login');
-  };
+  // Validation
+  if (formData.password !== formData.confirmPassword) {
+    alert('Les mots de passe ne correspondent pas !');
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost/ququ%20projet/app_bibliotheque/backend/inscription.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        action: "inscription",
+        nom: formData.nom,
+        prenom: formData.prenom,
+        email: formData.email,
+        telephone: formData.telephone,
+        password: formData.password
+      })
+    });
+    const data = await response.json();
+        if (data.message) {
+      alert(data.message); // "Inscription réussie"
+      navigate("/login");
+    } else if (data.error) {
+      alert(data.error); // "Veuillez remplir tous les champs"
+    }
+  } catch (error) {
+    console.error("Erreur lors de l'inscription:", error);
+    alert("Une erreur est survenue, réessayez plus tard.");
+  }
+};
+
 
   const inputStyle = {
     width: '100%',

@@ -7,15 +7,41 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: Appel API backend pour authentification
-    console.log('Login:', { email, password });
-    
-    // Simulation de connexion réussie
-    alert('Connexion réussie !');
-    navigate('/');
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("http://localhost/ququ%20projet/app_bibliotheque/backend/inscription.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        action: "connexion",
+        email: email,
+        password: password
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.message) {
+      alert(data.message); // "Connexion réussie, bienvenue ..."
+      
+      // redirection selon le rôle
+      if (data.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
+    } else if (data.error) {
+      alert(data.error); // "Email ou mot de passe incorrect"
+    }
+  } catch (error) {
+    console.error("Erreur lors de la connexion:", error);
+    alert("Une erreur est survenue, réessayez plus tard.");
+  }
+};
 
   return (
     <div>

@@ -10,6 +10,11 @@ import Register from './pages/Register';
 import CatalogueVisitor from './pages/CatalogueVisitor';
 import About from './pages/About';
 import DetailLivre from './pages/DetailLivre';
+import  {Dashboard}  from './pages/Admin/Dashboard.jsx';
+import  {Emprunts}  from './pages/Admin/Emprunts.jsx';
+import {Livres} from './pages/Admin/Livres.jsx';
+import { Settings } from './pages/Admin/Settings.jsx';
+import { Membres } from './pages/Admin/Membres.jsx';
 
 function App() {
   return (
@@ -38,6 +43,21 @@ function App() {
         
         {/* Détail d'un livre */}
         <Route path="/livre/:id" element={<DetailLivre />} />
+        
+        {/* Tableau de bord Admin */}
+        <Route path="/admin/dashboard" element={<Dashboard />} />
+
+        {/* Gestion des emprunts Admin */}
+        <Route path="/admin/emprunts" element={<Emprunts />} />
+
+        {/* Gestion des livres Admin */}
+        <Route path="/admin/livres" element={<Livres />} />
+
+        {/* Paramètres Admin */}
+        <Route path="/admin/settings" element={<Settings />} />
+
+        {/* Gestion des membres Admin */}
+        <Route path="/admin/membres" element={<Membres />} />
         
         {/* Page par défaut (404) */}
         <Route path="*" element={
